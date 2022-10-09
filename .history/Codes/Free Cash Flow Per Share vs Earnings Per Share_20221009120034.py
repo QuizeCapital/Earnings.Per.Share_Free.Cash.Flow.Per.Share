@@ -130,5 +130,8 @@ output =   freecashflowpershareByEarnningspershare(
 )
 outputObject =  output.FCFPSbyEps()
 print(
-    (pd.DataFrame(outputObject,columns=['Quntile 1', 'Quntile 2','Quntile 3','Quntile 4','Quntile 5']))
+    (pd.DataFrame(outputObject),columns=['Quntile 1', 'Quntile 2','Quntile 3','Quntile 4','Quntile 5'])
     )
+
+# plt.plot(outputObject)
+# plt.show()

@@ -116,9 +116,12 @@ class freecashflowpershareByEarnningspershare:
                 ]
             lst = list((pd.DataFrame(historicalReturnsTickerDict, columns=['Quintile', 'Returns']).groupby(['Quintile']).mean())['Returns'])
             out =[ lst[i:i + 5] for i in range(0, len(lst), 5)]
+               
+                               
+                
+                                #list((pd.DataFrame(historicalReturnsTickerDict, columns=['Quintile', 'Returns']).groupby(['Quintile']).mean())['Returns'])
+
             
-            return out
-        #list((pd.DataFrame(historicalReturnsTickerDict, columns=['Quintile', 'Returns']).groupby(['Quintile']).mean())['Returns'])           
         return arrayOfFCFPSbyEps(self)
 
 pd.set_option('display.max_colwidth', None)
@@ -129,6 +132,7 @@ output =   freecashflowpershareByEarnningspershare(
     ,'/Users/adamszequi/SmartFactor/Smart-Factor-Research-Files-5/Earnings Per Share By Free Cash Flow (Excess Returns)/Data/Free Cashflow Per Share Data.json'
 )
 outputObject =  output.FCFPSbyEps()
-print(
-    (pd.DataFrame(outputObject,columns=['Quntile 1', 'Quntile 2','Quntile 3','Quntile 4','Quntile 5']))
-    )
+
+
+# plt.plot(outputObject)
+# plt.show()

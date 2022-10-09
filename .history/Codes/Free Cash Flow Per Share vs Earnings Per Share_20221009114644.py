@@ -68,15 +68,15 @@ class freecashflowpershareByEarnningspershare:
 
     '''
     def FCFPSbyEps(self):
-            # '''
-            # This function splits a list into inputted chunks where we can use that as 
-            # our quintile output.
-            # '''
+            '''
+            This function splits a list into inputted chunks where we can use that as 
+            our quintile output.
+            '''
     
-        # def chunks(lst, n):
-        # #Yield successive n-sized chunks from lst.
-        #     for i in range(0, len(lst), n):
-        #         yield lst[i:i + n]
+        def chunks(lst, n):
+        #Yield successive n-sized chunks from lst.
+            for i in range(0, len(lst), n):
+                yield lst[i:i + n]
         
         '''
         This function creates merged 5 quintiles containing intersection of securites
@@ -114,11 +114,17 @@ class freecashflowpershareByEarnningspershare:
                 for dictReturnKey,dictReturnValue in  values.items()
                 if dictReturnKey in lists
                 ]
-            lst = list((pd.DataFrame(historicalReturnsTickerDict, columns=['Quintile', 'Returns']).groupby(['Quintile']).mean())['Returns'])
-            out =[ lst[i:i + 5] for i in range(0, len(lst), 5)]
             
-            return out
-        #list((pd.DataFrame(historicalReturnsTickerDict, columns=['Quintile', 'Returns']).groupby(['Quintile']).mean())['Returns'])           
+            return  ([yield lst[i:i + n] 
+                for _ in range(
+                    len(0,len(
+                    list((pd.DataFrame(historicalReturnsTickerDict, columns=['Quintile', 'Returns']).groupby(['Quintile']).mean())['Returns'])
+                    ,5]
+                    )
+                               )
+                
+            
+            
         return arrayOfFCFPSbyEps(self)
 
 pd.set_option('display.max_colwidth', None)
@@ -129,6 +135,7 @@ output =   freecashflowpershareByEarnningspershare(
     ,'/Users/adamszequi/SmartFactor/Smart-Factor-Research-Files-5/Earnings Per Share By Free Cash Flow (Excess Returns)/Data/Free Cashflow Per Share Data.json'
 )
 outputObject =  output.FCFPSbyEps()
-print(
-    (pd.DataFrame(outputObject,columns=['Quntile 1', 'Quntile 2','Quntile 3','Quntile 4','Quntile 5']))
-    )
+print(outputObject)
+
+# plt.plot(outputObject)
+# plt.show()

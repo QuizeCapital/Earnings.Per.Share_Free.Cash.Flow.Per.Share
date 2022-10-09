@@ -129,6 +129,7 @@ output =   freecashflowpershareByEarnningspershare(
     ,'/Users/adamszequi/SmartFactor/Smart-Factor-Research-Files-5/Earnings Per Share By Free Cash Flow (Excess Returns)/Data/Free Cashflow Per Share Data.json'
 )
 outputObject =  output.FCFPSbyEps()
-print(
-    (pd.DataFrame(outputObject,columns=['Quntile 1', 'Quntile 2','Quntile 3','Quntile 4','Quntile 5']))
-    )
+print((pd.DataFrame(outputObject),columns=['Quntile 1', 'Quntile 2','Quntile 1','Quntile 1','Quntile 1','Quntile 1'])
+
+# plt.plot(outputObject)
+# plt.show()
