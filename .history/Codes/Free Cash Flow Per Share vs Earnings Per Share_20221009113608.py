@@ -55,6 +55,10 @@ class freecashflowpershareByEarnningspershare:
         
         return fcfpsDf.dropna()
     
+    def chunks(lst, n):
+    """Yield successive n-sized chunks from lst."""
+    for i in range(0, len(lst), n):
+        yield lst[i:i + n]
         
     
     '''
@@ -68,15 +72,6 @@ class freecashflowpershareByEarnningspershare:
 
     '''
     def FCFPSbyEps(self):
-            '''
-            This function splits a list into inputted chunks where we can use that as 
-            our quintile output.
-            '''
-    
-        def chunks(lst, n):
-        #Yield successive n-sized chunks from lst.
-            for i in range(0, len(lst), n):
-                yield lst[i:i + n]
         
         '''
         This function creates merged 5 quintiles containing intersection of securites
@@ -116,7 +111,7 @@ class freecashflowpershareByEarnningspershare:
                 ]
             
             return  (
-                chunks((list((pd.DataFrame(historicalReturnsTickerDict, columns=['Quintile', 'Returns']).groupby(['Quintile']).mean())['Returns'])),5)
+                np.array(list((pd.DataFrame(historicalReturnsTickerDict, columns=['Quintile', 'Returns']).groupby(['Quintile']).mean())['Returns']))
             )
             
         return arrayOfFCFPSbyEps(self)
