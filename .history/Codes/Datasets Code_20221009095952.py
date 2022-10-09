@@ -1,5 +1,5 @@
 import sys 
-path = "/Users/adamszequi/Desktop/Clones/UniversalModules"
+path = "/Users/adamszequi/SmartFactor/Smart-Factor-Research-Files-5/Universal Models"
 sys.path.append(path)
 from ExternalModules import modulesSmartFactor
 from urllib.request import urlopen

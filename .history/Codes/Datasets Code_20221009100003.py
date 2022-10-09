@@ -1,4 +1,5 @@
 import sys 
+path = "/Users/adamszequi/SmartFactor/Smart-Factor-Research-Files-5/Universal Models"
 path = "/Users/adamszequi/Desktop/Clones/UniversalModules"
 sys.path.append(path)
 from ExternalModules import modulesSmartFactor
